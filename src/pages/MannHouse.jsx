@@ -1,5 +1,10 @@
+import { useNavigate } from 'react-router-dom';
+
 export default function MannHouse() {
+    const navigate = useNavigate();
+    
     return (
+
       <div className="max-w-7xl mx-auto mt-10 space-y-20 px-4">
 
             <h1 className="text-2xl md:text-5xl font-semibold text-gray-700 mb-2" style={{ fontFamily: "'DM Mono', monospace" }}> Thomas Mann House </h1>
@@ -27,8 +32,8 @@ export default function MannHouse() {
             <button
               className="absolute left-[80%] top-[64%] w-24 h-16 bg-gray-500/30 rounded-md hover:bg-gray-600/50 transition"
               title="Enter the Study"
-              onClick={() => alert("Open 3D model of the study")}
-            >
+              onClick={() => navigate('/study')}
+            > 
               <span className="sr-only">Enter the Study</span>
             </button>
   

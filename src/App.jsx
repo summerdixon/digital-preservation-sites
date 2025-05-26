@@ -4,6 +4,7 @@ import MannHouse from './pages/MannHouse.jsx'
 import ScheyerHouse from './pages/ScheyerHouse.jsx'
 import About from './pages/About.jsx'
 import Navbar from './components/Navbar.jsx'
+import Study from './pages/Study.jsx'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/mann" element={<MannHouse />} />
         <Route path="/scheyer" element={<ScheyerHouse />} />
         <Route path="/about" element={<About />} />
+        <Route path="/study" element={<Study />} />
       </Routes>
     </Router>
   )
