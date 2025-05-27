@@ -1,9 +1,12 @@
 import { useNavigate } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 export default function MannHouse() {
     const navigate = useNavigate();
     
     return (
+
+      <div>
 
       <div className="max-w-7xl mx-auto mt-10 space-y-20 px-4">
 
@@ -78,6 +81,13 @@ export default function MannHouse() {
             </button>
           </div>
         </section>
+      </div>
+
+      <div className="p-6"></div>
+
+      {/* Footer */}
+      <Footer />
+
       </div>
     );
   }  

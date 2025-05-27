@@ -1,4 +1,19 @@
+import Footer from '../components/Footer';
+
 export default function About() {
-    return <h2>About page</h2>;
+    return (
+    <div>
+        
+        <h2>About page</h2>;
+
+
+    <div className="p-6"></div>
+
+      {/* Footer */}
+      <Footer />
+
+    </div>
+
+    );
 }
   

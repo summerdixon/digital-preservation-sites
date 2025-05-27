@@ -9,25 +9,38 @@ function PlayerControls() {
   
     useFrame(() => {
       const speed = 0.1;
-  
-      // Get camera direction
+    
+      // Get forward vector (movement direction)
       const forward = new THREE.Vector3();
       camera.getWorldDirection(forward);
-      forward.y = 0; // Don't move up/down
+      forward.y = 0;
       forward.normalize();
-  
+    
       // Get right vector
       const right = new THREE.Vector3();
       right.crossVectors(camera.up, forward).normalize();
-  
-      // Combine movement
+    
+      // Compute movement
       const moveDir = new THREE.Vector3();
       moveDir
-        .add(forward.clone().multiplyScalar(direction.current[0])) // forward/back
-        .add(right.clone().multiplyScalar(direction.current[1]));  // left/right
-  
+        .add(forward.clone().multiplyScalar(direction.current[0]))  // forward/back
+        .add(right.clone().multiplyScalar(direction.current[1]));   // left/right
+    
+      // Apply movement
       camera.position.add(moveDir.multiplyScalar(speed));
-    });
+    
+      // Clamp camera position within room bounds
+      const roomSize = {
+        x: 4 - 0.3,
+        z: 4 - 0.3,
+        yMin: 1.6,
+        yMax: 2.4,
+      };
+    
+      camera.position.x = THREE.MathUtils.clamp(camera.position.x, -roomSize.x, roomSize.x);
+      camera.position.z = THREE.MathUtils.clamp(camera.position.z, -roomSize.z, roomSize.z);
+      camera.position.y = THREE.MathUtils.clamp(camera.position.y, roomSize.yMin, roomSize.yMax);
+    });    
   
     useEffect(() => {
       const handleKeyDown = (e) => {
@@ -133,6 +146,16 @@ function Room() {
 
 export default function StudyScene() {
   return (
+    <div className="relative w-full h-screen">
+
+    {/* Text Overlay */}
+    <div className="absolute bottom-10 left-10 z-10 bg-white/50 p-4 rounded shadow text-gray-800 max-w-sm">
+    <h2 className="text-xl font-semibold mb-2" style={{ fontFamily: "'DM Mono', monospace" }}>Thomas Mann's Study</h2>
+    <p className="text-m" style={{ fontFamily: "'Lora', sans-serif" }}>
+      Use your mouse and arrow keys or W/A/S/D to explore the study. This room was where Mann worked during his American exile.
+    </p>
+    </div>
+
     <Canvas
         camera={{
             position: [0, 2, 0],
@@ -185,5 +208,6 @@ export default function StudyScene() {
     <PlayerControls />
     </Canvas>
 
+    </div>
   );
 }
