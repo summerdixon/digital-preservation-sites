@@ -151,13 +151,35 @@ function Room() {
       </mesh>
 
       <FactHotspot
-        position={[3.5, 2.5, -3.9]}
+        position={[3, 2.5, -3.9]}
         fact="Thomas Mann wrote much of 'Doctor Faustus' in this study during his American exile."
       />
+
       <FactHotspot
-        position={[0, 2.5, 3.9]}
+        position={[0, 0.4, -3.9]}
         fact="Mann’s desk overlooked the Pacific Ocean, a reminder of the world he left behind."
       />
+
+      <FactHotspot
+        position={[-2, 1, 3.9]}
+        fact="Mann wrote most of his speeches for the BBC German Service from this room, broadcasting anti-Nazi messages into Germany."
+      />
+
+      <FactHotspot
+        position={[0, 2.5, 3.9]}
+        fact="In this room, Mann wrote essays and letters defending democracy and warning against fascism."
+      />
+
+      <FactHotspot
+        position={[-1.5, 1.75, -3.9]}
+        fact="Mann kept detailed journals, some of which were published posthumously and reveal deep reflections on exile and identity."
+      />
+
+      <FactHotspot
+        position={[3, 2.5, 3.9]}
+        fact="Mann wrote every morning in this study, strictly from 9 a.m. to noon, in longhand."
+      />
+
     </>
   );
 }
@@ -165,7 +187,7 @@ function Room() {
 export default function StudyScene() {
   return (
     <div className="relative w-full h-screen">
-      <div className="absolute bottom-24 left-20 z-10 bg-white/50 p-4 rounded shadow text-gray-800 max-w-sm">
+      <div className="absolute bottom-24 left-20 z-10 bg-white/80 p-4 rounded shadow text-gray-800 max-w-sm text-center">
         <h2 className="text-xl font-semibold mb-2" style={{ fontFamily: "'DM Mono', monospace" }}>
           Thomas Mann's Study
         </h2>
