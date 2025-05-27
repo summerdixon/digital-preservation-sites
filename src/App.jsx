@@ -6,6 +6,7 @@ import About from './pages/About.jsx'
 import Navbar from './components/Navbar.jsx'
 import Study from './pages/Study.jsx'
 import LivingRoom from './pages/LivingRoom.jsx'
+import BlueFour from './pages/BlueFour.jsx'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/study" element={<Study />} />
         <Route path="/livingroom" element={<LivingRoom />} />
+        <Route path="/bluefour" element={<BlueFour />} />
       </Routes>
     </Router>
   )
