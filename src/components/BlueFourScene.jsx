@@ -17,6 +17,8 @@ function BlueFourRoom() {
 
   const floorTexture = useTexture('/assets/images/mann_study_5.jpg');
 
+  const whiteWallTexture = useTexture('/assets/images/white_wall.jpg');
+
   const paintingPositions = [
     [-2.7, 2.8], [-1.0, 2.8], [0.7, 2.8], [2.4, 2.8],
     [-1.7, 1.2], [0, 1.2], [1.7, 1.2],
@@ -36,7 +38,7 @@ function BlueFourRoom() {
       {/* Back wall - mini-gallery */}
       <mesh position={[0, 2, 3]} rotation={[0, Math.PI, 0]}>
         <planeGeometry args={[8, 4]} />
-        <meshStandardMaterial color="#ffffff" />
+        <meshStandardMaterial map={whiteWallTexture} />
       </mesh>
 
       {/* Paintings on back wall */}
@@ -55,13 +57,13 @@ function BlueFourRoom() {
       {/* Left wall - text info */}
       <mesh position={[-4, 2, 0]} rotation={[0, Math.PI / 2, 0]}>
         <planeGeometry args={[8, 4]} />
-        <meshStandardMaterial color="#ffffff" />
+        <meshStandardMaterial map={whiteWallTexture} />
       </mesh>
 
       {/* Right wall - text info */}
       <mesh position={[4, 2, 0]} rotation={[0, -Math.PI / 2, 0]}>
         <planeGeometry args={[8, 4]} />
-        <meshStandardMaterial color="#ffffff" />
+        <meshStandardMaterial map={whiteWallTexture} />
       </mesh>
 
       {/* Floor */}
@@ -73,7 +75,7 @@ function BlueFourRoom() {
       {/* Ceiling */}
       <mesh position={[0, 4, 0]} rotation={[Math.PI / 2, 0, 0]}>
         <planeGeometry args={[8, 8]} />
-        <meshStandardMaterial color="#ffffff" />
+        <meshStandardMaterial map={whiteWallTexture} side={THREE.DoubleSide}/>
       </mesh>
     </>
   );
@@ -136,12 +138,23 @@ function MovementControls() {
   return <PointerLockControls />;
 }
 
+function SetInitialCameraDirection() {
+    const { camera } = useThree();
+  
+    useEffect(() => {
+      camera.lookAt(0, 0, 5);
+    }, [camera]);
+  
+    return null;
+  }
+
 export default function BlueFourRoomScene() {
   return (
     <div className="w-full h-screen">
-      <Canvas camera={{ position: [0, 2, 3], fov: 75 }}>
+      <Canvas camera={{ position: [0, 2, -3], fov: 75 }}>
         <BlueFourRoom />
         <MovementControls />
+        <SetInitialCameraDirection />
 
         <ambientLight intensity={0.7} />
 
