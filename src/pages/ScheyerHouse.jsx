@@ -60,6 +60,7 @@ export default function ScheyerHouse() {
               <button
                 onClick={() => navigate('/bluefour')}
                 className="bg-blue-700 text-white px-6 py-3 rounded-lg hover:bg-blue-800 transition"
+                style={{ fontFamily: "'DM Mono', monospace" }}
               >
                 Enter the Blue Four Room
               </button>
