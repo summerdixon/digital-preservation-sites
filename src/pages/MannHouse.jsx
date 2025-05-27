@@ -44,7 +44,7 @@ export default function MannHouse() {
             <button
               className="absolute left-[66%] top-[36%] w-36 h-20 bg-gray-500/30 rounded-md hover:bg-gray-600/50 transition"
               title="Enter the Living Room"
-              onClick={() => alert("Open 3D model of the living room")}
+              onClick={() => navigate('/livingroom')}
             >
               <span className="sr-only">Enter the Living Room</span>
             </button>

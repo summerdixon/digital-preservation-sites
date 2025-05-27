@@ -24,7 +24,7 @@ export default function Home() {
         {/* Text box */}
         <div
           className="absolute top-[12%] bg-white/40 rounded-lg shadow-md px-8 py-6 max-w-2xl text-center"
-          style={{ fontFamily: "'Lora', sans-serif" }}
+          style={{ fontFamily: "'Lora', serif" }}
         >
           <p className="text-gray-700 text-base md:text-lg">
             Explore LA's historic homes, their architecture, and the lives of their German émigré inhabitants via this interactive virtual exhibit.
