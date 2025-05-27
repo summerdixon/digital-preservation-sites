@@ -149,10 +149,10 @@ export default function StudyScene() {
     <div className="relative w-full h-screen">
 
     {/* Text Overlay */}
-    <div className="absolute bottom-10 left-10 z-10 bg-white/50 p-4 rounded shadow text-gray-800 max-w-sm">
+    <div className="absolute bottom-20 left-20 z-10 bg-white/50 p-4 rounded shadow text-gray-800 max-w-sm">
     <h2 className="text-xl font-semibold mb-2" style={{ fontFamily: "'DM Mono', monospace" }}>Thomas Mann's Study</h2>
     <p className="text-m" style={{ fontFamily: "'Lora', sans-serif" }}>
-      Use your mouse and arrow keys or W/A/S/D to explore the study. This room was where Mann worked during his American exile.
+      Use your mouse and arrow keys or WASD to explore the study. This room was where Mann worked during his American exile.
     </p>
     </div>
 

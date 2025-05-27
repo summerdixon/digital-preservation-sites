@@ -6,6 +6,7 @@ import About from './pages/About.jsx'
 import Navbar from './components/Navbar.jsx'
 import Study from './pages/Study.jsx'
 import LivingRoom from './pages/LivingRoom.jsx'
+import Balcony from './pages/Balcony.jsx'
 import BlueFour from './pages/BlueFour.jsx'
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/study" element={<Study />} />
         <Route path="/livingroom" element={<LivingRoom />} />
         <Route path="/bluefour" element={<BlueFour />} />
+        <Route path="/balcony" element={<Balcony />} />
       </Routes>
     </Router>
   )

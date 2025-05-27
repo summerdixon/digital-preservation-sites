@@ -75,7 +75,7 @@ export default function MannHouse() {
             <button
               className="absolute left-[42.25%] top-[56.5%] w-36 h-12 bg-gray-500/30 rounded-md hover:bg-gray-600/50 transition"
               title="See the view off the balcony"
-              onClick={() => alert("Open panorama taken from the balcony")}
+              onClick={() => navigate('/balcony')}
             >
               <span className="sr-only">See the view off the balcony</span>
             </button>
