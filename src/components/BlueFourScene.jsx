@@ -16,8 +16,8 @@ function BlueFourRoom() {
   ]);
 
   const floorTexture = useTexture('/assets/images/mann_study_5.jpg');
-
   const whiteWallTexture = useTexture('/assets/images/white_wall.jpg');
+  const newspaperTexture = useTexture('assets/images/blue_four_newspaper.png');
 
   const paintingPositions = [
     [-2.7, 2.8], [-1.0, 2.8], [0.7, 2.8], [2.4, 2.8],
@@ -77,6 +77,22 @@ function BlueFourRoom() {
         <planeGeometry args={[8, 8]} />
         <meshStandardMaterial map={whiteWallTexture} side={THREE.DoubleSide}/>
       </mesh>
+
+      {/* Blue Four Newspaper */}
+    <mesh position={[3.99, 2, 0]} rotation={[0, -Math.PI / 2, 0]}>
+    <planeGeometry args={[2.5, 2]} />
+    <meshStandardMaterial map={newspaperTexture} />
+    </mesh>
+
+    {/* Gallery RectAreaLight */}
+    <rectAreaLight
+    width={2.5}
+    height={3}
+    intensity={0.1}
+    color={'#fffde8'}
+    position={[3.9, 2, 0]}
+    rotation={[-Math.PI / 2, -Math.PI / 2, 0]}
+    />
 
     <FactHotspot
         position={[2.4, 2.1, 2.98]}
