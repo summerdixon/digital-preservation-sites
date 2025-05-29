@@ -192,7 +192,7 @@ export default function StudyScene() {
           Thomas Mann's Study
         </h2>
         <p className="text-m" style={{ fontFamily: "'Lora', sans-serif" }}>
-          Use WASD to move and the left and right arrow keys to rotate. Click on orange circles to learn about Mann's writing.
+          Use WASD to move and the left and right arrow keys to rotate. Click on orange circles to learn facts about Thomas Mann.
         </p>
       </div>
 

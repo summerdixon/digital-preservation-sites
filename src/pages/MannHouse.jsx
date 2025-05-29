@@ -11,6 +11,22 @@ export default function MannHouse() {
       <div className="max-w-7xl mx-auto mt-10 space-y-20 px-4">
 
             <h1 className="text-2xl md:text-5xl font-semibold text-gray-700 mb-2" style={{ fontFamily: "'DM Mono', monospace" }}> Thomas Mann House </h1>
+
+            <section>
+
+            <h2 
+              className="text-2xl md:text-3xl font-semibold text-gray-700 mb-2"
+              style={{ fontFamily: "'DM Mono', monospace" }}
+            >
+              Historic Overview
+            </h2>
+
+            <p className="text-gray-700 mb-4" style={{ fontFamily: "'Lora', serif" }}>
+              Blurb 
+            </p>
+
+            </section>
+
   
         {/* FIRST FLOOR SECTION */}
         <section>

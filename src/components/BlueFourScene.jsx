@@ -1,6 +1,6 @@
 import { Canvas, useThree, useFrame } from '@react-three/fiber';
-import { useTexture, PointerLockControls } from '@react-three/drei';
-import { useRef, useEffect } from 'react';
+import { useTexture, PointerLockControls, Html } from '@react-three/drei';
+import { useRef, useState, useEffect } from 'react';
 import * as THREE from 'three';
 
 function BlueFourRoom() {
@@ -77,83 +77,181 @@ function BlueFourRoom() {
         <planeGeometry args={[8, 8]} />
         <meshStandardMaterial map={whiteWallTexture} side={THREE.DoubleSide}/>
       </mesh>
+
+    <FactHotspot
+        position={[2.4, 2.1, 2.98]}
+        fact="Wassily Kandinsky, Locker-Fest."
+    />
+
+    <FactHotspot
+        position={[0.7, 2.1, 2.98]}
+        fact="Alexej von Jawlensky, abstract head: black and white."
+    />
+
+    <FactHotspot
+        position={[-1, 2.1, 2.98]}
+        fact="Lyonel Feininger, Gross-Kromsdorf III."
+    />
+
+    <FactHotspot
+        position={[-2.7, 2.1, 2.98]}
+        fact="Paul Klee, Refuge."
+    />
+
+    <FactHotspot
+        position={[1.7, 0.5, 2.98]}
+        fact="Lyonel Feininger, Magic Sea."
+    />
+
+    <FactHotspot
+        position={[0, 0.5, 2.98]}
+        fact="Paul Klee, Possibilities at Sea."
+    />
+
+    <FactHotspot
+        position={[-1.7, 0.5, 2.98]}
+        fact="Alexej von Jawlensky, Violet Lips."
+    />
+
     </>
   );
 }
 
-function MovementControls() {
-  const { camera } = useThree();
-  const direction = useRef([0, 0]);
-
-  useFrame(() => {
-    const speed = 0.1;
-    const forward = new THREE.Vector3();
-    camera.getWorldDirection(forward);
-    forward.y = 0;
-    forward.normalize();
-    const right = new THREE.Vector3();
-    right.crossVectors(forward, camera.up).normalize();
-    const moveDir = new THREE.Vector3();
-    moveDir.add(forward.clone().multiplyScalar(direction.current[0]));
-    moveDir.add(right.clone().multiplyScalar(direction.current[1]));
-    camera.position.add(moveDir.multiplyScalar(speed));
-
-    const limit = 2.5;
-    camera.position.x = THREE.MathUtils.clamp(camera.position.x, -limit, limit);
-    camera.position.z = THREE.MathUtils.clamp(camera.position.z, -limit, limit);
-  });
-
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      switch (e.key.toLowerCase()) {
-        case 'w':
-        case 'arrowup':
-          direction.current[0] = 1;
-          break;
-        case 's':
-        case 'arrowdown':
-          direction.current[0] = -1;
-          break;
-        case 'a':
-        case 'arrowleft':
-          direction.current[1] = -1;
-          break;
-        case 'd':
-        case 'arrowright':
-          direction.current[1] = 1;
-          break;
-      }
-    };
-    const handleKeyUp = () => {
-      direction.current = [0, 0];
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    window.addEventListener('keyup', handleKeyUp);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-      window.removeEventListener('keyup', handleKeyUp);
-    };
-  }, []);
-
-  return <PointerLockControls />;
-}
+function PlayerControls() {
+    const { camera } = useThree();
+    const direction = useRef([0, 0]); // [forward/backward, left/right]
+    const rotation = useRef(0); // left/right rotation
+  
+    useEffect(() => {
+      const handleKeyDown = (e) => {
+        switch (e.key.toLowerCase()) {
+          case 'w':
+            direction.current[0] = 0.25;
+            break;
+          case 's':
+            direction.current[0] = -0.25;
+            break;
+          case 'a':
+            direction.current[1] = -0.25;
+            break;
+          case 'd':
+            direction.current[1] = 0.25;
+            break;
+          case 'arrowleft':
+            rotation.current = 0.25;
+            break;
+          case 'arrowright':
+            rotation.current = -0.25;
+            break;
+        }
+      };
+  
+      const handleKeyUp = (e) => {
+        switch (e.key.toLowerCase()) {
+          case 'w':
+          case 's':
+            direction.current[0] = 0;
+            break;
+          case 'a':
+          case 'd':
+            direction.current[1] = 0;
+            break;
+          case 'arrowleft':
+          case 'arrowright':
+            rotation.current = 0;
+            break;
+        }
+      };
+  
+      window.addEventListener('keydown', handleKeyDown);
+      window.addEventListener('keyup', handleKeyUp);
+      return () => {
+        window.removeEventListener('keydown', handleKeyDown);
+        window.removeEventListener('keyup', handleKeyUp);
+      };
+    }, []);
+  
+    useFrame(() => {
+        const speed = 0.1;
+        const angle = camera.rotation.y;
+    
+        const forward = new THREE.Vector3(Math.sin(angle), 0, Math.cos(angle)).negate();
+        const right = new THREE.Vector3(Math.sin(angle + Math.PI / 2), 0, Math.cos(angle + Math.PI / 2));
+    
+        const moveDir = new THREE.Vector3();
+        moveDir
+          .add(forward.multiplyScalar(direction.current[0]))
+          .add(right.multiplyScalar(direction.current[1]));
+    
+        camera.position.add(moveDir.multiplyScalar(speed));
+        camera.rotation.y += rotation.current * 0.03;
+  
+      const roomSize = {
+        x: 4 - 0.3,
+        z: 3 - 0.3,
+        yMin: 1.6,
+        yMax: 2.4,
+      };
+  
+      camera.position.x = THREE.MathUtils.clamp(camera.position.x, -roomSize.x, roomSize.x);
+      camera.position.z = THREE.MathUtils.clamp(camera.position.z, -roomSize.z, roomSize.z);
+      camera.position.y = THREE.MathUtils.clamp(camera.position.y, roomSize.yMin, roomSize.yMax);
+    });
+  
+    return null;
+  }
 
 function SetInitialCameraDirection() {
     const { camera } = useThree();
   
     useEffect(() => {
-      camera.lookAt(0, 0, 5);
+        camera.position.set(0,2,0);
+        camera.lookAt(0, 2, -5);
     }, [camera]);
   
     return null;
   }
 
+function FactHotspot({ position, fact }) {
+    const [open, setOpen] = useState(false);
+  
+    return (
+      <group position={position}>
+        <mesh
+          onClick={(e) => {
+            e.stopPropagation();
+            setOpen(!open);
+          }}
+        >
+          <circleGeometry args={[0.1, 32]} />
+          <meshBasicMaterial color="orange" side={THREE.DoubleSide}/>
+        </mesh>
+  
+        {open && (
+          <Html center>
+            <div className="bg-gray-900/80 text-white p-2 rounded shadow w-[10rem] text-sm text-center" style={{ fontFamily: "'Lora', serif" }}>
+              {fact}
+            </div>
+          </Html>
+        )}
+      </group>
+    );
+  }  
+
 export default function BlueFourRoomScene() {
   return (
     <div className="w-full h-screen">
+      <div className="absolute bottom-12 left-20 z-10 bg-white/80 p-4 rounded shadow text-gray-800 max-w-sm text-center">
+        <h2 className="text-xl font-semibold mb-2" style={{ fontFamily: "'DM Mono', monospace" }}>
+          Galka Scheyer's Blue Four Room
+        </h2>
+        <p className="text-m" style={{ fontFamily: "'Lora', sans-serif" }}>
+          Use WASD to move and the left and right arrow keys to rotate. Click on orange circles to discover each artwork.
+        </p>
+      </div>
       <Canvas camera={{ position: [0, 2, -3], fov: 75 }}>
         <BlueFourRoom />
-        <MovementControls />
+        <PlayerControls />
         <SetInitialCameraDirection />
 
         <ambientLight intensity={0.7} />
