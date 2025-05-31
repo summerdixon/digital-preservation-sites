@@ -39,6 +39,10 @@ export default function MannHouse() {
             At the time of the Nazi takeover, he was immersed in writing novels and essays that would subtly or overtly encourage citizens to oppose the Nazi cause. On his many tours throughout Europe, Mann expressed his opposition to Nazism and support of Socialist ideologies. When Hitler was elected Chancellor in 1933, Thomas and Katia Mann decided not to return to Germany for some time and lived temporarily in Switzerland, until a trip to the United States persuaded them to settle down there with their six children. The works Mann produced while living in LA reflect the tensions of the war and his political opinions. The most famous of these, Doctor Faustus, relates music, tragedy, and loss of hope. As World War II came to a close, anti-leftist attitudes in the United States spurred the Manns to return to Switzerland, where Thomas Mann later died in 1955.
             </p>
 
+            <p className="text-gray-700 mb-4" style={{ fontFamily: "'Lora', serif" }}>
+            Today, the Thomas Mann House Villa Aurora and Thomas Mann House Foundation (VATMH) is responsible for the preservation and upkeep of the house, which now hosts scholars as part of a fellowship program to encourage transatlantic debate in the spirit of Mann.
+            </p>
+
             </section>
 
             <section className="my-12">

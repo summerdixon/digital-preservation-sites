@@ -47,8 +47,9 @@ export default function BalconyScene() {
       </Canvas>
 
       {/* Quote Overlay */}
-<div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 bg-white bg-opacity-80 text-gray-800 px-6 py-4 rounded-lg shadow-lg max-w-xl text-center text-lg leading-relaxed" style={{ fontFamily: "'Lora', serif" }}>
-  “I have what I wanted — the light; the dry, always refreshing warmth; the spaciousness compared with Princeton.”
+<div className="absolute top-10 left-1/2 transform -translate-x-1/2 bg-white bg-opacity-70 text-gray-800 px-6 py-4 rounded-lg shadow-lg max-w-3xl text-center text-m leading-relaxed" style={{ fontFamily: "'Lora', serif" }}>
+“I am working under outward conditions for which I cannot be grateful enough — in the most beautiful work room I have ever had. I wish you could see the country around our house and the view of the ocean; the garden with its palm, olive, pepper, lemon and eucalyptus trees, the luxuriant flowers, the grass plots, which were being mowed a few days after the seed was sown. Bright sensory impressions are not to be sneezed at in such times; the sky is bright almost all year long and sheds an incomparable, all beautifying light.”
+  <br></br> -Thomas Mann, 1942
 </div>
 
 
