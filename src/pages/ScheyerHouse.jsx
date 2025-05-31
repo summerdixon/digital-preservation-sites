@@ -24,11 +24,11 @@ export default function ScheyerHouse() {
             </p>
 
             <p className="text-gray-700 mb-4" style={{ fontFamily: "'Lora', serif" }}>
-            She first met Jawlensky while traveling in Switzerland and subsequently visited the Bauhaus in Weimar where she was introduced to Feininger, Kandinksy, and Klee.
+            She first met Jawlensky while traveling in Switzerland and subsequently visited the Bauhaus in Weimar where she was introduced to Feininger, Kandinsky, and Klee.
             </p>
 
             <p className="text-gray-700 mb-4" style={{ fontFamily: "'Lora', serif" }}>
-            Giving them their signature nickname, she took up her role as the group’s legal representative and went about promoting their work in the states at various galleries and exhibitions. She moved out west and settled in Los Angeles after forming a vast professional network, and in 1933, she commisioned Neutra to design her home in which she could display her art and host gatherings. 
+            Giving them their signature nickname, she took up her role as the group’s legal representative and went about promoting their work in the states at various galleries and exhibitions. She moved out west and settled in Los Angeles after forming a vast professional network, and in 1933, she commissioned Neutra to design her home in which she could display her art and host gatherings. 
             </p>
 
             <p className="text-gray-700 mb-4" style={{ fontFamily: "'Lora', serif" }}>
