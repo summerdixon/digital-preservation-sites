@@ -40,7 +40,7 @@ export default function MannHouse() {
             </p>
 
             <p className="text-gray-700 mb-4" style={{ fontFamily: "'Lora', serif" }}>
-            Today, the Thomas Mann House Villa Aurora and Thomas Mann House Foundation (VATMH) is responsible for the preservation and upkeep of the house, which now hosts scholars as part of a fellowship program to encourage transatlantic debate in the spirit of Mann.
+            Today, the Villa Aurora and Thomas Mann House Foundation (VATMH) is responsible for the preservation and upkeep of the house, which now hosts scholars as part of a fellowship program to encourage transatlantic debate in the spirit of Mann.
             </p>
 
             </section>
