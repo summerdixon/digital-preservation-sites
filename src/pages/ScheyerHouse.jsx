@@ -6,7 +6,7 @@ export default function ScheyerHouse() {
 
     return (
       <div>
-        <div className="max-w-7xl mx-auto mt-10 space-y-20 px-4">
+        <div className="max-w-7xl mx-auto mt-10 space-y-10 px-4">
           <h1 className="text-2xl md:text-5xl font-semibold text-gray-700 mb-2" style={{ fontFamily: "'DM Mono', monospace" }}>
             Galka Scheyer House
           </h1>
