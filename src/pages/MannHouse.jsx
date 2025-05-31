@@ -3,6 +3,16 @@ import Footer from '../components/Footer';
 
 export default function MannHouse() {
     const navigate = useNavigate();
+
+    const timelineData = [
+      { year: 1875, label: 'Thomas Mann Born' },
+      { year: 1929, label: 'Nobel Prize in Literature' },
+      { year: 1942, label: 'Moves to the Mann House' },
+      { year: 1952, label: 'Returns to Europe' },
+      { year: 1955, label: 'Thomas Mann Dies' },
+      { year: 2016, label: 'House Purchased by Germany' },
+      { year: 2018, label: 'Thomas Mann House Opens' },
+    ];
     
     return (
 
@@ -30,6 +40,44 @@ export default function MannHouse() {
             </p>
 
             </section>
+
+            <section className="my-12">
+  {/* Full-Width Timeline Stripe */}
+  <div className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] bg-gray-700 py-10 overflow-x-auto">
+    
+    {/* Unified Container for Title and Timeline */}
+    <div className="flex flex-col items-center justify-center w-full">
+      
+      {/* Title */}
+      <h2
+        className="text-2xl md:text-2xl font-bold text-white tracking-wide mb-2"
+        style={{ fontFamily: "'DM Mono', monospace" }}
+      >
+        Timeline
+      </h2>
+
+      {/* Scrollable Timeline */}
+      <div
+        className="flex gap-8 px-10 py-2 whitespace-nowrap"
+        style={{ fontFamily: "'Lora', serif" }}
+      >
+        {timelineData.map((event, i) => (
+          <div
+          key={i}
+          className="flex-shrink-0 min-w-[180px] max-w-[240px]
+                     flex flex-col items-center justify-center text-center"
+        >        
+            <div className="text-l font-semibold text-white">{event.year}</div>
+            <div className="text-sm text-gray-300 mt-1">{event.label}</div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
 
   
         {/* FIRST FLOOR SECTION */}
