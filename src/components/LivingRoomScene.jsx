@@ -1,6 +1,9 @@
 import Footer from '../components/Footer';
+import { useNavigate } from 'react-router-dom';
 
 export default function LivingRoomPage() {
+    const navigate = useNavigate();
+
     return (
     <div>
       <div className="relative min-h-screen bg-gray-900 text-white overflow-hidden font-sans">
@@ -49,8 +52,16 @@ It also offers educational programs such as “The Art of Living Together – De
               Visit the Thomas Mann House Foundation Website
             </a>
           </div>
-  
-          
+
+            <div className="flex flex-col items-center">
+                <button
+                    className="w-72 h-16 bg-white rounded-2xl hover:bg-gray-200 transition text-gray-700" style={{ fontFamily: "'DM Mono', monospace" }}
+                    title="Return to the floor plan"
+                    onClick={() => navigate('/mann')}
+                >
+                    Return to the Floor Plan
+                </button>
+            </div>
   
         </div>
       </div>

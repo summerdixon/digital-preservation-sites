@@ -30,6 +30,16 @@ export default function Home() {
             Explore LA's historic homes, their architecture, and the lives of their German émigré inhabitants via this interactive virtual exhibit.
           </p>
         </div>
+
+        <div
+          className="absolute top-[65%] bg-gray-700/60 rounded-lg shadow-md px-8 py-6 max-w-5xl text-center"
+          style={{ fontFamily: "'Lora', serif" }}
+        >
+          <p className="text-white text-base md:text-m">
+          Preservation sites serve as immersive archives to physically memorialize the history of a space and its inhabitants. Serving as the heart of the entertainment industry and boasting a diverse, multicultural heritage, it is not surprising that Los Angeles contains many historically significant residences. These sites honor the contributions of famous writers, architects, Hollywood figures, political leaders, and wealthy industrialists. In particular, German exiles such as Thomas Mann, Lion Feuchtwanger, Arnold Schoenberg, Galka Scheyer, and many more immigrated to Los Angeles upon the outbreak of World War II as it offered the opportunity to establish a new creative culture and connect with fellow refugees in the area. This project explores how digital storytelling and interactivity can be used to illuminate exile narratives, specifically through the recreation and interpretation of the domestic spaces of Thomas Mann and Galka Scheyer.
+          </p>
+        </div>
+
       </main>
 
       {/* Footer */}
