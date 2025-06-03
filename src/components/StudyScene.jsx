@@ -2,6 +2,7 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { useTexture, Html } from '@react-three/drei';
 import { useRef, useState, useEffect } from 'react';
 import * as THREE from 'three';
+import { useNavigate } from 'react-router-dom';
 
 function PlayerControls() {
   const { camera } = useThree();
@@ -185,6 +186,9 @@ function Room() {
 }
 
 export default function StudyScene() {
+
+  const navigate = useNavigate();
+
   return (
     <div className="relative w-full h-screen">
       <div className="absolute bottom-24 left-20 z-10 bg-white/80 p-4 rounded shadow text-gray-800 max-w-sm text-center">
@@ -194,7 +198,21 @@ export default function StudyScene() {
         <p className="text-m" style={{ fontFamily: "'Lora', sans-serif" }}>
           Use WASD to move and the left and right arrow keys to rotate. Click on orange circles to learn facts about Thomas Mann.
         </p>
+
+        <br></br>
+
+        <div className="flex flex-col items-center">
+                <button
+                    className="w-72 h-14 bg-gray-700 rounded-2xl hover:bg-gray-800 transition text-white" style={{ fontFamily: "'DM Mono', monospace" }}
+                    title="Return to the floor plan"
+                    onClick={() => navigate('/mann')}
+                >
+                    Return to the Floor Plan
+                </button>
+            </div>
+        
       </div>
+
 
       <Canvas
         camera={{ position: [0, 2, 0], fov: 75, near: 0.1, far: 1000 }}
