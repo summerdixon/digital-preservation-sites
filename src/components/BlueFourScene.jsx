@@ -2,6 +2,7 @@ import { Canvas, useThree, useFrame } from '@react-three/fiber';
 import { useTexture, PointerLockControls, Html } from '@react-three/drei';
 import { useRef, useState, useEffect } from 'react';
 import * as THREE from 'three';
+import { useNavigate } from 'react-router-dom';
 
 function BlueFourRoom() {
   const [windowWall, ...paintingTextures] = useTexture([
@@ -255,6 +256,9 @@ function FactHotspot({ position, fact }) {
   }  
 
 export default function BlueFourRoomScene() {
+
+    const navigate = useNavigate();
+
   return (
     <div className="w-full h-screen">
       <div className="absolute bottom-12 left-20 z-10 bg-white/80 p-4 rounded shadow text-gray-800 max-w-sm text-center">
@@ -264,6 +268,19 @@ export default function BlueFourRoomScene() {
         <p className="text-m" style={{ fontFamily: "'Lora', sans-serif" }}>
           Use WASD to move and the left and right arrow keys to rotate. Click on orange circles to discover each artwork.
         </p>
+
+        <br></br>
+
+        <div className="flex flex-col items-center">
+                <button
+                    className="w-72 h-14 bg-gray-700 rounded-2xl hover:bg-gray-800 transition text-white" style={{ fontFamily: "'DM Mono', monospace" }}
+                    title="Return to the Scheyer page"
+                    onClick={() => navigate('/scheyer')}
+                >
+                    Return to the Scheyer Page
+                </button>
+            </div>
+
       </div>
       <Canvas camera={{ position: [0, 2, -3], fov: 75 }}>
         <BlueFourRoom />
