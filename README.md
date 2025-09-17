@@ -3,3 +3,11 @@ This project was created as a part of my Digital Humanities 150 class taught by 
 
 ## Live Site
 Here is the link to my live site, which is hosted with Vercel: https://digital-preservation-sites.vercel.app/
+
+## Commands
+```bash
+npm install
+```
+```bash
+npm run dev
+```
